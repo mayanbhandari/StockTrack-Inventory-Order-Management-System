@@ -1,0 +1,23 @@
+.info-page .info-back {
+  /* Back button sits above static page titles. */
+  margin-bottom: 0.75rem;
+}
+
+.info-sections {
+  /* Static content cards stack cleanly on all screens. */
+  display: grid;
+  gap: 1rem;
+}
+
+.info-card h2 {
+  /* Keep info headings smaller than app page headings. */
+  font-size: 1.05rem;
+  margin-bottom: 0.5rem;
+  color: var(--text);
+}
+
+.info-card p {
+  /* Longer policy text gets comfortable line height. */
+  color: var(--text-muted);
+  line-height: 1.65;
+}

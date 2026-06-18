@@ -1,0 +1,332 @@
+*,
+*::before,
+*::after {
+  /* Keep spacing predictable across every component. */
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Shared colors and sizing tokens for the whole UI. */
+  --bg: #f4f6f9;
+  --surface: #ffffff;
+  --text: #1a2332;
+  --text-muted: #5c6b7a;
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --danger: #dc2626;
+  --danger-hover: #b91c1c;
+  --success: #059669;
+  --warning: #d97706;
+  --border: #e2e8f0;
+  --shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
+  --radius: 10px;
+}
+
+body {
+  /* Base page styling used by the React app. */
+  font-family: 'DM Sans', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+.container {
+  /* Keep content centered without touching mobile edges. */
+  width: min(1200px, 100% - 2rem);
+  margin: 0 auto;
+}
+
+.page-header {
+  /* Standard spacing above each page body. */
+  margin-bottom: 1.5rem;
+}
+
+.page-header h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.page-header p {
+  color: var(--text-muted);
+}
+
+.page-header-hero {
+  /* Soft page intro block used on main screens. */
+  padding: 1.25rem 1.5rem;
+  background: linear-gradient(135deg, #eff6ff 0%, #f5f3ff 50%, #fdf4ff 100%);
+  border-radius: var(--radius);
+  border: 1px solid #dbeafe;
+  margin-bottom: 1.5rem;
+}
+
+.interactive-row {
+  /* Table rows feel clickable without changing layout. */
+  transition: background 0.12s;
+}
+
+.interactive-row:hover {
+  background: #f8fafc;
+}
+
+.card {
+  /* Reusable panel style for forms, tables, and summaries. */
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.25rem;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.08);
+}
+
+.section-title {
+  /* Compact section heading with a small accent mark. */
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.section-title::before {
+  content: '';
+  width: 4px;
+  height: 1.1rem;
+  border-radius: 2px;
+  background: linear-gradient(180deg, var(--primary), #6366f1);
+}
+
+.btn {
+  /* Shared button base so actions feel consistent. */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.15s, opacity 0.15s;
+}
+
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--primary-hover);
+}
+
+.btn-danger {
+  background: var(--danger);
+  color: white;
+}
+
+.btn-danger:hover:not(:disabled) {
+  background: var(--danger-hover);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.btn-ghost:hover:not(:disabled) {
+  background: var(--bg);
+}
+
+.btn-sm {
+  padding: 0.35rem 0.75rem;
+  font-size: 0.875rem;
+}
+
+.form-grid {
+  /* Form fields stack on mobile and can expand on larger screens. */
+  display: grid;
+  gap: 1rem;
+}
+
+.form-group label {
+  /* Labels stay compact but readable. */
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: white;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: 2px solid rgba(37, 99, 235, 0.25);
+  border-color: var(--primary);
+}
+
+.form-error {
+  color: var(--danger);
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+}
+
+.alert {
+  /* Feedback banners for success and error states. */
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  font-size: 0.925rem;
+}
+
+.alert-error {
+  background: #fef2f2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
+.alert-success {
+  background: #ecfdf5;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+}
+
+.table-wrap {
+  /* Tables scroll horizontally instead of breaking mobile layouts. */
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+table {
+  /* Tables keep consistent spacing across pages. */
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.925rem;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+th {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  background: #f8fafc;
+}
+
+.badge {
+  /* Small stock/status labels. */
+  display: inline-block;
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.badge-warning {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.badge-ok {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.empty-state {
+  /* Friendly placeholder text for loading and empty lists. */
+  text-align: center;
+  padding: 2.5rem 1rem;
+  color: var(--text-muted);
+}
+
+.actions-row {
+  /* Action buttons wrap neatly in narrow table cells. */
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: min(100% - 1rem, 1200px);
+  }
+
+  .page-header-hero {
+    padding: 1rem;
+  }
+
+  .page-header h1 {
+    font-size: 1.4rem;
+  }
+
+  .card {
+    padding: 1rem;
+  }
+
+  .btn {
+    min-height: 40px;
+  }
+
+  th,
+  td {
+    padding: 0.55rem;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .page-header {
+    margin-bottom: 1rem;
+  }
+
+  .page-header h1 {
+    font-size: 1.3rem;
+  }
+
+  .actions-row,
+  .filter-actions {
+    width: 100%;
+  }
+
+  .actions-row .btn,
+  .filter-actions .btn {
+    flex: 1 1 120px;
+  }
+}

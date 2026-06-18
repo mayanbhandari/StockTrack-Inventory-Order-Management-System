@@ -1,0 +1,129 @@
+.site-footer {
+  /* Dark footer separates support links from the app workspace. */
+  margin-top: auto;
+  background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+  color: #cbd5e1;
+}
+
+.footer-grid {
+  /* Four-column footer on desktop. */
+  display: grid;
+  grid-template-columns: 1.4fr repeat(3, 1fr);
+  gap: 2rem;
+  padding: 3rem 0 2rem;
+}
+
+.footer-brand p {
+  /* Brand description stays narrow for easier reading. */
+  margin-top: 0.85rem;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #94a3b8;
+  max-width: 320px;
+}
+
+.footer-logo {
+  /* Footer logo mirrors the header brand. */
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: white;
+}
+
+.footer-logo .brand-mark {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #3b82f6, #6366f1);
+  color: white;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+
+.footer-col h3 {
+  color: white;
+  font-size: 0.95rem;
+  margin-bottom: 0.85rem;
+}
+
+.footer-col ul {
+  /* Footer links are simple vertical lists. */
+  list-style: none;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.footer-col a {
+  color: #94a3b8;
+  font-size: 0.9rem;
+  transition: color 0.15s;
+}
+
+.footer-col a:hover {
+  color: white;
+}
+
+.footer-contact li {
+  font-size: 0.9rem;
+  color: #94a3b8;
+}
+
+.footer-bottom {
+  /* Bottom strip holds copyright and legal links. */
+  border-top: 1px solid rgba(148, 163, 184, 0.2);
+  padding: 1rem 0;
+}
+
+.footer-bottom-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+.footer-bottom-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.footer-bottom-links a {
+  color: #94a3b8;
+}
+
+.footer-bottom-links a:hover {
+  color: white;
+}
+
+@media (max-width: 900px) {
+  /* Tablet layout uses two columns. */
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 540px) {
+  /* Phone layout stacks footer sections. */
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 2rem 0 1.5rem;
+  }
+
+  .footer-bottom-inner,
+  .footer-bottom-links {
+    width: 100%;
+  }
+
+  .footer-bottom-links {
+    justify-content: space-between;
+  }
+}

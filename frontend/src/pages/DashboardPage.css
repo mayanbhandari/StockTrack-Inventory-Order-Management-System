@@ -1,0 +1,100 @@
+.stats-grid {
+  /* Summary cards adapt from desktop grid to phone stack. */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.stat-card {
+  /* Shared visual style for every dashboard metric. */
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  box-shadow: var(--shadow);
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card-btn {
+  /* Cards act like buttons without looking heavy. */
+  cursor: pointer;
+  width: 100%;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.stat-card-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.1);
+}
+
+.stat-card-btn:active {
+  transform: translateY(-1px);
+}
+
+.stat-card.blue { border-top: 3px solid #2563eb; }
+.stat-card.green { border-top: 3px solid #059669; }
+.stat-card.purple { border-top: 3px solid #7c3aed; }
+.stat-card.amber { border-top: 3px solid #d97706; }
+
+.stat-icon {
+  /* Small icon tile helps each stat scan faster. */
+  display: inline-flex;
+  width: 32px;
+  height: 32px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  margin-bottom: 0.65rem;
+  background: var(--bg);
+}
+
+.stat-card.blue .stat-icon { background: #dbeafe; color: #2563eb; }
+.stat-card.green .stat-icon { background: #d1fae5; color: #059669; }
+.stat-card.purple .stat-icon { background: #ede9fe; color: #7c3aed; }
+.stat-card.amber .stat-icon { background: #fef3c7; color: #d97706; }
+
+.stat-label {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 0.35rem;
+}
+
+.stat-value {
+  display: block;
+  font-size: 1.85rem;
+  line-height: 1.1;
+  margin-bottom: 0.35rem;
+}
+
+.stat-hint {
+  font-size: 0.75rem;
+  color: var(--primary);
+  font-weight: 500;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.stat-card-btn:hover .stat-hint {
+  opacity: 1;
+}
+
+.low-stock-section h2 {
+  /* Keep the low-stock heading aligned with shared section titles. */
+  font-size: 1.1rem;
+  margin-bottom: 0;
+}
+
+@media (max-width: 520px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-card {
+    padding: 1rem;
+  }
+}

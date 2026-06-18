@@ -1,0 +1,77 @@
+.order-form-card {
+  /* Order form sits above the order history table. */
+  margin-bottom: 0;
+}
+
+.line-items {
+  /* Product rows inside the order form. */
+  display: grid;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.line-items-header {
+  /* Header keeps item title and add button together. */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.line-item-row {
+  /* Desktop line item layout: product, quantity, remove. */
+  display: grid;
+  grid-template-columns: 1fr 100px auto;
+  gap: 0.75rem;
+  align-items: end;
+  padding: 0.75rem;
+  background: var(--bg);
+  border-radius: 8px;
+}
+
+.qty-field input {
+  /* Quantities are easier to scan when centered. */
+  text-align: center;
+}
+
+.remove-line-btn {
+  margin-bottom: 0.15rem;
+}
+
+.order-total-row {
+  /* Estimated total sits just above the submit button. */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.85rem 0;
+  margin-bottom: 0.75rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.95rem;
+}
+
+@media (max-width: 640px) {
+  /* Phone layout stacks each order item field. */
+  .line-item-row {
+    grid-template-columns: 1fr;
+  }
+
+  .remove-line-btn {
+    width: 100%;
+  }
+
+  .line-items-header {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .line-items-header .btn,
+  .order-total-row + .btn {
+    width: 100%;
+  }
+
+  .order-total-row {
+    align-items: flex-start;
+    gap: 0.35rem;
+    flex-direction: column;
+  }
+}
