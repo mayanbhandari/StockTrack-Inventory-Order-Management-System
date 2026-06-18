@@ -111,8 +111,8 @@ docker compose down
 | `POSTGRES_PASSWORD`   | Database password                        | *(set a strong value)*           |
 | `POSTGRES_DB`         | Database name                            | `inventory_db`                   |
 | `DATABASE_URL`        | Full PostgreSQL connection string        | `postgresql://user:pass@db:5432/inventory_db` |
-| `CORS_ORIGINS`        | Allowed frontend origins (comma-separated) | `https://your-app.vercel.app`    |
-| `VITE_API_URL`        | Backend URL for frontend build           | `https://your-api.onrender.com`  |
+| `CORS_ORIGINS`        | Allowed frontend origins (comma-separated) | `https://stock-track-inventory-order-managem.vercel.app` |
+| `VITE_API_URL`        | Backend URL for frontend build           | `https://stocktrack-api-xgcv.onrender.com` |
 | `LOW_STOCK_THRESHOLD` | Stock level flagged as low               | `10`                             |
 
 ## Deployment
@@ -124,7 +124,7 @@ git init
 git add .
 git commit -m "Initial commit: StockTrack inventory system"
 git branch -M main
-git remote add origin https://github.com/YOUR_USERNAME/stocktrack.git
+git remote add origin https://github.com/mayanbhandari/StockTrack-Inventory-Order-Management-System.git
 git push -u origin main
 ```
 
@@ -136,8 +136,8 @@ git push -u origin main
    - **PostgreSQL** database (free tier)
 3. Set environment variables:
    - `DATABASE_URL` - from Render PostgreSQL dashboard (Internal URL)
-   - `CORS_ORIGINS` - your frontend URL (e.g. `https://stocktrack.vercel.app`)
-4. Deploy and note your API URL: `https://stocktrack-api.onrender.com`
+   - `CORS_ORIGINS` - your frontend URL (e.g. `https://stock-track-inventory-order-managem.vercel.app`)
+4. Deploy and note your API URL: `https://stocktrack-api-xgcv.onrender.com`
 
 **Alternative:** Railway or Fly.io with the same `backend/Dockerfile`.
 
@@ -146,27 +146,27 @@ git push -u origin main
 Build and push the backend image:
 
 ```bash
-docker build -t YOUR_DOCKERHUB_USERNAME/stocktrack-api:latest ./backend
+docker build -t mayanbhandari/stocktrack-api:latest ./backend
 docker login
-docker push YOUR_DOCKERHUB_USERNAME/stocktrack-api:latest
+docker push mayanbhandari/stocktrack-api:latest
 ```
 
 Docker Hub image link format:
-`https://hub.docker.com/r/YOUR_DOCKERHUB_USERNAME/stocktrack-api`
+`https://hub.docker.com/r/mayanbhandari/stocktrack-api`
 
 ### 4. Frontend - Vercel
 
 1. Import the GitHub repo on [Vercel](https://vercel.com)
 2. Set **Root Directory** to `frontend`
 3. Add environment variable:
-   - `VITE_API_URL` = your deployed backend URL (e.g. `https://stocktrack-api.onrender.com`)
+   - `VITE_API_URL` = your deployed backend URL (e.g. `https://stocktrack-api-xgcv.onrender.com`)
 4. Deploy
 
 **Alternative:** Netlify - set base directory to `frontend`, build command `npm run build`, publish `dist`, and add the same `VITE_API_URL`.
 
 ### 5. Verify deployment
 
-- Backend health: `GET https://YOUR-API-URL/health`
+- Backend health: `GET https://stocktrack-api-xgcv.onrender.com/health`
 - Frontend loads and can create products, customers, and orders
 - CORS is configured so the frontend can reach the backend
 
@@ -218,18 +218,16 @@ Open http://localhost:5173
 
 ## Submission Checklist
 
-- [ ] GitHub repository link (frontend + backend)
-- [ ] Docker Hub backend image link
-- [ ] Live frontend URL (Vercel / Netlify)
-- [ ] Live backend API URL (Render / Railway / Fly.io)
+- [x] GitHub repository link (frontend + backend)
+- [x] Docker Hub backend image link
+- [x] Live frontend URL (Vercel / Netlify)
+- [x] Live backend API URL (Render / Railway / Fly.io)
 
 
 
 | Deliverable | URL |
 |-------------|-----|
-| GitHub repository | `https://github.com/YOUR_USERNAME/stocktrack` |
-| Backend Docker Hub image | `https://hub.docker.com/r/YOUR_DOCKERHUB_USERNAME/stocktrack-api` |
-| Frontend hosted app | `https://YOUR_FRONTEND_URL` |
-| Backend API | `https://YOUR_BACKEND_URL` |
-
-
+| GitHub repository | `https://github.com/mayanbhandari/StockTrack-Inventory-Order-Management-System` |
+| Backend Docker Hub image | `https://hub.docker.com/r/mayanbhandari/stocktrack-api` |
+| Frontend hosted app | `https://stock-track-inventory-order-managem.vercel.app` |
+| Backend API | `https://stocktrack-api-xgcv.onrender.com` |
